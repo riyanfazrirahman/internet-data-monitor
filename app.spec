@@ -1,13 +1,17 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+# Definisikan versi dan nama aplikasi di sini
+app_version = 'v2.0.0'
+app_name = f'MoNet_{app_version}'
+
 block_cipher = None
 
 a = Analysis(
-    ['main.py'],                            # Nama file utama Python kamu
+    ['net_monitor.py'],                             # Nama file utama Python kamu
     pathex=[],
     binaries=[],
     datas=[],
-    hiddenimports=['psutil'],               # Memastikan pustaka psutil ikut terbungkus
+    hiddenimports=['psutil'],                       # Memastikan pustaka psutil ikut terbungkus
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -27,7 +31,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='Internet Data',                    # <--- UBAH NAMA APLIKASI .EXE DI SINI
+    name=app_name,                          # <--- MEMANGGIL VARIABEL NAMA + VERSI
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -40,5 +44,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='icon.ico',                        # <--- NAMA FILE ICON KAMU (Harus format .ico)
+    icon='favicon.ico',                     # <--- NAMA FILE ICON KAMU (Harus format .ico)
 )
